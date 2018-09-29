@@ -1,0 +1,27 @@
+USE [CONSULTORIO]
+GO
+
+/****** Object:  Table [dbo].[Paciente]    Script Date: 29/09/2018 04:36:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Paciente](
+	[ID_Paciente] [int] NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Apellido] [varchar](50) NOT NULL,
+	[Edad] [tinyint] NOT NULL,
+	[Domicilio] [varchar](100) NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

@@ -1,0 +1,109 @@
+
+insert into Especialidad Values (1,'Alergologia')
+insert into Especialidad Values (2,'Cardiología')
+insert into Especialidad Values (3,'Gastroenterologia')
+insert into Especialidad Values (4,'Endocrinologia')
+insert into Especialidad Values (5,'Medicina familiar')
+insert into Especialidad Values (6,'Medicina interna')
+insert into Especialidad Values (7,'Nefrologia')
+insert into Especialidad Values (8,'Neumologia')
+insert into Especialidad Values (9,'Neurologia')
+insert into Especialidad Values (10,'Nutriologia')
+insert into Especialidad Values (11,'Oftalmologia')
+insert into Especialidad Values (12,'Pediatria')
+insert into Especialidad Values (13,'Geriatria')
+insert into Especialidad Values (14,'Reumatologia')
+insert into Especialidad Values (15,'Urologia')
+insert into Especialidad Values (16,'Ginecologia')
+
+select * from Especialidad
+delete Especialidad where ID_Especialidad=5
+update Especialidad set ID_Especialidad =16 where Especialidad='Ginecologia'
+
+insert into Consulta Values (1,1,'29-09-18',1,1)
+insert into Consulta Values (2,1,'29-09-18',2,2)
+insert into Consulta Values (3,2,'29-09-18',3,1)
+insert into Consulta Values (4,4,'29-09-18',4,2)
+insert into Consulta Values (5,5,'29-09-18',5,1)
+insert into Consulta Values (6,5,'29-09-18',6,2)
+insert into Consulta Values (7,7,'29-09-18',7,1)
+insert into Consulta Values (8,8,'29-09-18',8,1)
+insert into Consulta Values (9,8,'29-09-18',9,2)
+insert into Consulta Values (10,8,'29-09-18',10,1)
+insert into Consulta Values (11,10,'29-09-18',11,2)
+insert into Consulta Values (12,11,'29-09-18',12,1)
+insert into Consulta Values (13,13,'29-09-18',13,1)
+insert into Consulta Values (14,13,'29-09-18',14,2)
+insert into Consulta Values (15,15,'29-09-18',15,2)
+
+
+select * from Consulta
+delete Consulta where ID_Paciente=5
+update Consulta set Fecha ='30-09-18'  where ID_Paciente=15
+
+insert into Doctor Values (1,1821827,'Agustín','Lara','Treviño','CEDABCD1234ALT','Venustiano Carranza 2435')
+insert into Doctor Values (2,1821828,'Luis','Lorca','Ferrara','CEDEFGH5678ALT','San Miguel 4040')
+insert into Doctor Values (3,1821829,'Alice','Beau','Guajardo','CEDIJKL9123ALT','Karl Marx 1569')
+insert into Doctor Values (4,1821830,'Liz','García','Bermudez','CEDMNOP4567ALT','America 2631')
+insert into Doctor Values (5,1821831,'Omar','Lopez','Beltran','CEDQRSTU8912ALT','Loma Alta 8118')
+insert into Doctor Values (6,1821832,'Cuauhtemoc','Ramirez','Flores','CEDFLM57861ALT','Pangea 500')
+insert into Doctor Values (7,1821833,'Victoria','De la Fuente','Iglesias','CEDPIM57361ALT','Independencia de Mexico 290')
+insert into Doctor Values (8,1821834,'Pablo','Herrera','Gonzalez','CEDINOP4567ALT','Louis Pasteur 4566')
+insert into Doctor Values (9,1821835,'Estefania','Garza','Chapa','CEDTREU8912ALT','Estrella de Belen 6614')
+insert into Doctor Values (10,1821836,'Celia','Treviño','Diaz','CEDIJKL99187ALT','Capitan Aguilar 2333')
+insert into Doctor Values (11,1821837,'Daniel Gonzalo','Briones','Mares','CEDIJKLL123ALT','Isaac Garza 288')
+insert into Doctor Values (12,1821838,'Abril','Puentes','Zamai','CEDPBCD1284ALT','Mutualismo 912')
+insert into Doctor Values (13,1821839,'Juan','Gabriel','Ortiz','CEDQRST8912ALT','Texcoco 4268')
+insert into Doctor Values (14,1821840,'Rene','Perez','Joglar','CEDMNOP4567ALT','Amado Nervo 4655')
+insert into Doctor Values (15,1821841,'Ada','Lovelace','Smith','CEDAB2D1234ALT','Hernan Cortes 9747')
+
+
+select * from Doctor
+delete Doctor where Apellido_Materno='Chapa'
+update Doctor set ID_Empleado =18217231  where ID_Doctor=5
+
+select * from Doctor
+select * from Consulta
+select * from Especialidad
+select * from Horario
+select * from Paciente
+
+insert into Horario Values (1,'7:00 AM')
+insert into Horario Values (2,'7:30 AM')
+insert into Horario Values (3,'8:00 AM')
+insert into Horario Values (4,'8:30 AM')
+insert into Horario Values (5,'9:00 AM')
+insert into Horario Values (6,'9:30 AM')
+insert into Horario Values (7,'10:00 AM')
+insert into Horario Values (8,'10:30 AM')
+insert into Horario Values (9,'11:00 AM')
+insert into Horario Values (10,'11:30 AM')
+insert into Horario Values (11,'12:00 PM')
+insert into Horario Values (12,'12:30 PM')
+insert into Horario Values (13,'1:00 PM')
+insert into Horario Values (14,'1:30 PM')
+insert into Horario Values (15,'2:00 PM')
+
+delete Horario where ID_Horario>10
+update Doctor set ID_Empleado =18217231  where ID_Doctor=5
+
+insert into Paciente Values(1287548,'Andrea', 'Flores',18 , 'Morones Prieto 8554')
+insert into Paciente Values(9632581,'Beatriz', 'Guerrero',25 , 'Loma Bonita 531')
+insert into Paciente Values(9631111,'Esteban', 'Cuevas',30 , 'Rio Panuco 466')
+insert into Paciente Values(9632222,'Jose Luis', 'Parras',19 , 'Estalactita 3422')
+insert into Paciente Values(969647,'Everardo', 'Delgado',20 , 'Boulevard Diaz Ordaz 7488')
+insert into Paciente Values(9632581,'Efraín', '',40 , 'California 7664')
+insert into Paciente Values(9632581,'Isis', 'Guzman',18 , 'Reino Unido 255')
+insert into Paciente Values(9632581,'Carmen', 'Paredes',16 , 'Bandera de Mexico 6524')
+insert into Paciente Values(9632581,'Lucio', 'Sanchez',50 , 'Solsticio de primavera 1414')
+insert into Paciente Values(9632581,'Alberto', 'Valero',36 , 'Francisco I Madero 4752')
+insert into Paciente Values(9632581,'Matin', 'Huerta',23 , 'Joujutla 1364')
+insert into Paciente Values(9632581,'Osvaldo', 'Bolivar',17 , 'Laura Arce 9114')
+insert into Paciente Values(9632581,'Paulo', 'Cruz',18 , 'Juventino Rosas 975')
+insert into Paciente Values(9632581,'Elias', 'Esquivel',133 , 'Aguirre Pequeño 4128')
+insert into Paciente Values(9632581,'Miriam', 'Gonzalez',40 , 'Amsterdam 700')
+insert into Paciente Values(9632581,'Cristina', 'Guerrero',31, '15 Mayo 200')
+
+update Doctor set Domicilio ='Loma Bonita 290'  where ID_Doctor=2
+delete Paciente where ID_Horario<18
+select * from Paciente

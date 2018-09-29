@@ -1,0 +1,27 @@
+USE [CONSULTORIO]
+GO
+
+/****** Object:  Table [dbo].[Consulta]    Script Date: 29/09/2018 04:35:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Consulta](
+	[ID_Consulta] [int] NOT NULL,
+	[ID_Horario] [tinyint] NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[ID_Paciente] [int] NOT NULL,
+	[ID_Doctor] [numeric](18, 0) NOT NULL,
+ CONSTRAINT [PK_Consulta] PRIMARY KEY CLUSTERED 
+(
+	[ID_Consulta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
