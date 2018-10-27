@@ -1,0 +1,45 @@
+CREATE TABLE Orders_LOG(OrderID int primary key not null, CustomerID nchar(5), ID_Employee int not null,
+OrderDate datetime, RequiredDate datetime, ShippedDate datetime, ShipVia int, Freight money, 
+ShipName nvarchar(40), ShipAddress nvarchar(60), ShipCity nvarchar(15), ShipRegion nvarchar(15),
+ShipPostalCode nvarchar(10), ShipCountry nvarchar(15),
+Event varchar(10), EventDate datetime)
+GO
+CREATE TRIGGER Orders_AI
+ON Orders
+AFTER INSERT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO Orders_LOG(OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,Event,EventDate)
+	SELECT OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,'Insert',GETDATE()
+	FROM inserted
+END
+GO
+CREATE TRIGGER Orders_AU
+ON Orders
+AFTER UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO Orders_LOG(OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,Event,EventDate)
+	SELECT OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,'Update',GETDATE()
+	FROM inserted
+END
+GO
+CREATE TRIGGER Orders_AD
+ON Orders
+AFTER DELETE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO Orders_LOG(OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,Event,EventDate)
+	SELECT OrderID,CustomerID,ID_Employee,OrderDate,RequiredDate,ShippedDate,
+	ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,'Delete',GETDATE()
+	FROM deleted
+END
+GO
