@@ -1,0 +1,62 @@
+USE [CONSULTORIO_LSTI]
+GO
+
+-- 4 selects Join (cross, inner, left, right) --
+SELECT * FROM [dbo].[Doctor]
+CROSS JOIN [dbo].[Doctors_Office]
+
+SELECT * FROM [dbo].Employee AS e
+INNER JOIN [dbo].[Doctors_Office] as do
+ON e.ID_Employee = do.ID_Employee
+
+SELECT * FROM [dbo].Employee AS e
+LEFT JOIN [dbo].[Doctors_Office] as do
+ON e.ID_Employee = do.ID_Employee
+
+SELECT * FROM [dbo].Employee AS e
+RIGHT JOIN [dbo].[Doctors_Office] as do
+ON e.ID_Employee = do.ID_Employee
+
+-- 5 selects con uso de funciones de agregación (min, max, avg, std, count) --
+-- 2 sin group by --
+SELECT MIN(UnitsInStock) as LowestInStock FROM [dbo].Products
+SELECT MAX(UnitPrice) as MostExpensive FROM [dbo].Products
+
+-- 3 con group by --
+SELECT COUNT(CustomerID) as Customers, Country
+FROM [dbo].Customers
+GROUP BY Country;
+
+SELECT AVG(Age) as AverageAge, Gender
+FROM [dbo].Employee
+GROUP BY Gender;
+
+-- 1 con having --
+SELECT AVG(Age) as AverageAge, ID_Role
+FROM [dbo].Employee
+GROUP BY ID_Role HAVING ID_Role = 2;
+
+-- 3 selects con join y group by -- 
+SELECT e.ID_Employee, e.Name, e.First_Surname, e.Second_Surname, TotalOrders
+FROM [dbo].Employee as e
+INNER JOIN
+	(SELECT ID_Employee, COUNT(*) as TotalOrders
+		FROM [dbo].Orders GROUP BY ID_Employee) as empOrders
+ON empOrders.ID_Employee = e.ID_Employee
+
+SELECT c.CustomerID, c.CompanyName, c.ContactName, c.ContactTitle, TotalOrders
+FROM [dbo].Customers as c
+INNER JOIN
+	(SELECT CustomerID, COUNT(*) as TotalOrders
+		FROM [dbo].Orders GROUP BY CustomerID) as cusOrders
+ON cusOrders.CustomerID = c.CustomerID
+
+SELECT s.ShipperID, s.CompanyName,  TotalOrders
+FROM [dbo].Shippers as s
+INNER JOIN
+	(SELECT ShipVia, COUNT(*) as TotalOrders
+		FROM [dbo].Orders GROUP BY ShipVia) as shipperOrders
+ON shipperOrders.ShipVia = s.ShipperID
+
+
+ 
