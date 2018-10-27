@@ -1,0 +1,20 @@
+create view DoctorView as select ID_Doctor, ID_Specialty from Doctor where ID_Specialty = 1;
+select * from DoctorView order by ID_Doctor
+
+create view ExpedientView as select ID_Expedient, Expedient from Expedient where ID_Expedient !=24;
+select * from ExpedientView order by ID_Expedient
+
+create view [dbo].[Current Product List] AS
+SELECT Product_List.ProductID, Product_List.ProductName
+FROM Products AS Product_List
+WHERE (((Product_List.Discontinued)=0))
+
+create view [dbo].[Products Above Average Price] AS
+SELECT Products.ProductName, Products.UnitPrice
+FROM Products
+WHERE Products.UnitPrice>(SELECT AVG(UnitPrice) From Products)
+
+create view [dbo].[Products by Category] AS
+SELECT Categories.CategoryName, Products.ProductName, Products.QuantityPerUnit, Products.UnitsInStock, Products.Discontinued
+FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID
+WHERE Products.Discontinued <> 1
